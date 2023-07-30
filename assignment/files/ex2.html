@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title> for ajax</title>
+        <script lang="javascript">
+            function serv(){
+                const xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function(){
+                    if(this.readyState == 4 && this.status==200) document.getElementById("ajaxtxt").innerHTML = this.responseText;
+                };
+                xmlhttp.open("GET","http://localhost:8000/getHello");
+                xmlhttp.send();
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <input type="button" value="Ajax Call" onclick="serv()"/>
+        </form>
+        <div id="ajaxtxt"></div>
+    </body>
+</html>
